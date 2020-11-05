@@ -41,7 +41,7 @@ public class Usuario {
         //Crear lista de cuentas
         this.cuentas = new ArrayList<>();
         
-        System.out.printf("Usuario %s %s creado con ID %s. \n ", nombre, apellido, idUsuario);
+        System.out.printf("Usuario %s %s creado con ID %s. \n", nombre, apellido, idUsuario);
     }
     
     
@@ -53,6 +53,8 @@ public class Usuario {
     String getIdUsuario(){
         return idUsuario;
     }
+    
+    
     
     // Validar si el Pin ingresado corresponde al pin del usuario
     public boolean validarPin(String pin){

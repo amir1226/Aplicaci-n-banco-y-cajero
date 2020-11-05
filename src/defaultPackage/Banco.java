@@ -101,4 +101,10 @@ public class Banco {
         }
         return null;
     }
+
+    public String getNombreBanco() {
+        return nombreBanco;
+    }
+    
+    
 }

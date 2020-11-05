@@ -33,7 +33,9 @@ public class Cuenta {
         
         //Agregar cuenta a las listas de usuario y banco
         duenio.agregarCuenta(this);
+        System.out.println("Cuenta " + this.nombreCuenta + " agregada al usuario " + duenio.getIdUsuario());
         elBanco.agregarCuenta(this);
+        System.out.println("Cuenta " + this.nombreCuenta + " agregada al banco " + elBanco.getNombreBanco());
     }
 
     String getIdCuenta() {
