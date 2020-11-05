@@ -44,6 +44,7 @@ public class Usuario {
         System.out.printf("Usuario %s %s creado con ID %s. \n ", nombre, apellido, idUsuario);
     }
     
+    
     //Agregar cuenta a la lista
     public void agregarCuenta(Cuenta laCuenta){
         this.cuentas.add(laCuenta);
@@ -51,6 +52,21 @@ public class Usuario {
 
     String getIdUsuario(){
         return idUsuario;
+    }
+    
+    // Validar si el Pin ingresado corresponde al pin del usuario
+    public boolean validarPin(String pin){
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte pinIngresado[];
+            pinIngresado = md.digest(pin.getBytes());
+            return MessageDigest.isEqual(this.pinHash, pinIngresado);
+            
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return false;
     }
     
 }

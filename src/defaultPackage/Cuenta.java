@@ -32,7 +32,6 @@ public class Cuenta {
         this.movimientos = new ArrayList<>();
         
         //Agregar cuenta a las listas de usuario y banco
-        
         duenio.agregarCuenta(this);
         elBanco.agregarCuenta(this);
     }

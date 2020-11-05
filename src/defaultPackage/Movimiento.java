@@ -13,12 +13,26 @@ import java.util.Date;
  */
 public class Movimiento {
     
-    private double valor;
+    private double cantidad;
     
     private Date marcaTiempo;
     
     private String info;
     
     private Cuenta cuentaMov;
+    
+    
+    public Movimiento(double cantidad, Cuenta laCuenta){
+        this.cantidad = cantidad;
+        this.marcaTiempo = new Date();
+        this.info = "";
+        
+    }
+    
+    public Movimiento(double cantidad, String info, Cuenta laCuenta){
+        this(cantidad,laCuenta);
+        this.info = info;
+        
+    }
     
 }
