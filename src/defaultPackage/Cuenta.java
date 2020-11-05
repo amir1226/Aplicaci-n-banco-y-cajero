@@ -36,6 +36,11 @@ public class Cuenta {
         duenio.agregarCuenta(this);
         elBanco.agregarCuenta(this);
     }
+
+    String getIdCuenta() {
+        return idCuenta;
+    }
+
     
     
 }

@@ -48,4 +48,9 @@ public class Usuario {
     public void agregarCuenta(Cuenta laCuenta){
         this.cuentas.add(laCuenta);
     }
+
+    String getIdUsuario(){
+        return idUsuario;
+    }
+    
 }
