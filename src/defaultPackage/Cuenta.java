@@ -6,6 +6,7 @@
 package defaultPackage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,9 +18,24 @@ public class Cuenta {
     
     private double saldo;
     
-    private String idUsuario;
+    private String idCuenta;
     
     private Usuario duenio;
     
-    private ArrayList<Movimiento> movimientos;
+    private List<Movimiento> movimientos;
+
+    public Cuenta(String nombreCuenta, Usuario duenio, Banco elBanco) {
+        this.nombreCuenta = nombreCuenta;
+        this.duenio = duenio;
+        this.saldo = 0;
+        this.idCuenta = elBanco.obtenerIDCuenta();
+        this.movimientos = new ArrayList<>();
+        
+        //Agregar cuenta a las listas de usuario y banco
+        
+        duenio.agregarCuenta(this);
+        elBanco.agregarCuenta(this);
+    }
+    
+    
 }
