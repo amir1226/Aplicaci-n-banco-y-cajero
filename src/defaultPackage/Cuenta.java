@@ -33,13 +33,48 @@ public class Cuenta {
         
         //Agregar cuenta a las listas de usuario y banco
         duenio.agregarCuenta(this);
-        System.out.println("Cuenta " + this.nombreCuenta + " agregada al usuario " + duenio.getIdUsuario());
+        System.out.println("Cuenta " + this.nombreCuenta + " agregada al usuario " 
+                + duenio.getIdUsuario());
         elBanco.agregarCuenta(this);
-        System.out.println("Cuenta " + this.nombreCuenta + " agregada al banco " + elBanco.getNombreBanco());
+        System.out.println("Cuenta " + this.nombreCuenta + " agregada al banco " 
+                + elBanco.getNombreBanco());
     }
 
     String getIdCuenta() {
         return idCuenta;
+    }
+
+    public double obtenerBalance() {
+        double balance = 0;
+        for (Movimiento mov: this.movimientos){
+            balance += mov.getCantidad();
+        }
+        
+        return balance;
+    }
+
+    
+    String resumenCuenta() {
+       
+        double balance = this.obtenerBalance();
+        
+        if (balance >= 0){
+            return String.format("%s : $.03f : $s", this.idCuenta, balance, 
+                    this.nombreCuenta);
+        } else{
+            return String.format("%s : $(.03f) : $s", this.idCuenta, balance, 
+                    this.nombreCuenta);
+        }
+    }
+
+    void imprimirHistorialMovimientos() {
+        System.out.printf("\nHistorial de transacciones para la cuenta %s\n",
+                this.idCuenta);
+        
+        for (int tran = this.movimientos.size()-1; tran >= 0; tran--){
+            System.out.printf(this.movimientos.get(tran).getResumen());
+        }
+        System.out.println();
     }
 
     

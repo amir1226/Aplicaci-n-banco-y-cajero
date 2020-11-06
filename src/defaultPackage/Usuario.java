@@ -41,7 +41,8 @@ public class Usuario {
         //Crear lista de cuentas
         this.cuentas = new ArrayList<>();
         
-        System.out.printf("Usuario %s %s creado con ID %s. \n", nombre, apellido, idUsuario);
+        System.out.printf("Usuario %s %s creado con ID %s. \n", nombre, apellido, 
+                idUsuario);
     }
     
     
@@ -53,8 +54,11 @@ public class Usuario {
     String getIdUsuario(){
         return idUsuario;
     }
-    
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+     
     
     // Validar si el Pin ingresado corresponde al pin del usuario
     public boolean validarPin(String pin){
@@ -70,5 +74,24 @@ public class Usuario {
         
         return false;
     }
+
+    // Texto resumen de las cuentas
+    void imprimirResumenCuentas() {
+        
+        System.out.printf("\nResumen cuentas de %s",this.nombre);
+        for(int i = 0; i<this.cuentas.size();i++){
+            System.out.printf("%d. %s\n", i+1, this.cuentas.get(i).resumenCuenta());
+        }
+        
+        System.out.println();
+    }
     
+    int numeroCuentas(){
+        return this.cuentas.size();
+    }
+
+    void imprimirHistorialMovimientosCuenta(int indiceCuenta) {
+        
+        this.cuentas.get(indiceCuenta).imprimirHistorialMovimientos();
+    }
 }

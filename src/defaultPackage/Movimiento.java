@@ -35,4 +35,18 @@ public class Movimiento {
         
     }
     
+    double getCantidad(){
+        return cantidad;
+    }
+    
+    String getResumenMovimiento(){
+        
+        if(this.cantidad >= 0){
+            return String.format("%s : $%.03f : %s", this.marcaTiempo.toString(),
+                    this.cantidad, this.info);
+        }else{
+            return String.format("%s : $(%.03f) : %s", this.marcaTiempo.toString(),
+                    this.cantidad, this.info);
+        }
+    }
 }

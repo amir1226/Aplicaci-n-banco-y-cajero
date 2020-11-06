@@ -18,7 +18,8 @@ public class Cajero {
         
         System.out.printf("\nBienvenido a %s\n\n", elBanco.getNombreBanco());
         
-        // Menú del banco, vuelve a solicitar información en caso que la información sea incorrecta.
+        /* Menú del banco, vuelve a solicitar información en caso que la 
+        información sea incorrecta. */
         do {    
             System.out.print("Ingrese el ID del usuario: ");
             idUsuario = sc.nextLine();
@@ -28,7 +29,8 @@ public class Cajero {
             autorizaUsuario = elBanco.login(idUsuario, pin);
             
             if (autorizaUsuario == null) {
-                System.out.println("Información incorrecta. Vuelva a intentar por favor.");
+                System.out.println("Información incorrecta. Vuelva a intentar "
+                        + "por favor.");
                 intentos +=1;
             }
             
@@ -39,12 +41,13 @@ public class Cajero {
 
     private static void imprimirMenuUsuario(Usuario elUsuario, Scanner sc) {
         
-      elUsuario.imprimirResumenCuenta();
+      elUsuario.imprimirResumenCuentas();
       
       byte opcion = 0;
         
         do{
-        System.out.printf("Bienvenido %s, tienes las siguientes opciones: \n", elUsuario.getNombre());
+        System.out.printf("Bienvenido %s, tienes las siguientes opciones: \n", 
+                elUsuario.getNombre());
         System.out.println(" 1. Mostrar historial de transacciones");
         System.out.println(" 2. Retirar dinero");
         System.out.println(" 3. Depositar dinero");
@@ -74,6 +77,9 @@ public class Cajero {
                 break;  
         }
         
+        if (opcion != 5){
+            Cajero.imprimirMenuUsuario(elUsuario,sc);
+        }
     }   
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
@@ -92,6 +98,30 @@ public class Cajero {
             Cajero.imprimirMenuUsuario(elUsuario, sc);
         }
         
+    }
+
+    private static void mostrarHistorial(Usuario elUsuario, Scanner sc) {
+        
+        int indiceCuenta = -1;
+        
+        while(indiceCuenta <0 || indiceCuenta > elUsuario.numeroCuentas()){
+            System.out.printf("Ingrese el índice (1-%d) de la cuenta" +
+                    "de la transacción que quiere ver:", elUsuario.numeroCuentas());
+            
+            indiceCuenta = sc.nextInt()-1;
+            
+            if(indiceCuenta <0 || indiceCuenta > elUsuario.numeroCuentas()){
+                System.out.println("Indice fuera del rango. Intenta de nuevo.");
+            }
+        }
+        
+        elUsuario.imprimirHistorialMovimientosCuenta(indiceCuenta);
+        
+    }
+
+    private static void retitarFondos(Usuario elUsuario, Scanner sc) {
+        
+        int
     }
 
 }
