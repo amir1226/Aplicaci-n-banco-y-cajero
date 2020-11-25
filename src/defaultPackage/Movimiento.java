@@ -42,10 +42,10 @@ public class Movimiento {
     String getResumenMovimiento(){
         
         if(this.cantidad >= 0){
-            return String.format("%s : $%.03f : %s", this.marcaTiempo.toString(),
+            return String.format("%s : $%.03f : %s \n", this.marcaTiempo.toString(),
                     this.cantidad, this.info);
         }else{
-            return String.format("%s : $(%.03f) : %s", this.marcaTiempo.toString(),
+            return String.format("%s : $(%.03f) : %s \n", this.marcaTiempo.toString(),
                     this.cantidad, this.info);
         }
     }

@@ -78,7 +78,7 @@ public class Usuario {
     // Texto resumen de las cuentas
     void imprimirResumenCuentas() {
         
-        System.out.printf("\nResumen cuentas de %s",this.nombre);
+        System.out.printf("\nResumen cuentas de %s \n",this.nombre);
         for(int i = 0; i<this.cuentas.size();i++){
             System.out.printf("%d. %s\n", i+1, this.cuentas.get(i).resumenCuenta());
         }
@@ -93,5 +93,18 @@ public class Usuario {
     void imprimirHistorialMovimientosCuenta(int indiceCuenta) {
         
         this.cuentas.get(indiceCuenta).imprimirHistorialMovimientos();
+    }
+
+    double obtenerBalanceCuenta(int indiceCuenta) {
+        return this.cuentas.get(indiceCuenta).obtenerBalance();
+    }
+
+    String getIdCuentas(int icuentaOrigen) {
+        return this.cuentas.get(icuentaOrigen).getIdCuenta();
+    }
+
+    
+    void agregarTransaccion(int idCuenta, double cantidad, String info) {
+        this.cuentas.get(idCuenta).realizarTransaccion(cantidad,info);
     }
 }

@@ -59,10 +59,10 @@ public class Cuenta {
         double balance = this.obtenerBalance();
         
         if (balance >= 0){
-            return String.format("%s : $.03f : $s", this.idCuenta, balance, 
+            return String.format("%s : %s : $%.03f : $s",this.nombreCuenta, this.idCuenta, balance, 
                     this.nombreCuenta);
         } else{
-            return String.format("%s : $(.03f) : $s", this.idCuenta, balance, 
+            return String.format("%s : %s : $(%.03f) : $s",this.nombreCuenta, this.idCuenta, balance, 
                     this.nombreCuenta);
         }
     }
@@ -72,9 +72,15 @@ public class Cuenta {
                 this.idCuenta);
         
         for (int tran = this.movimientos.size()-1; tran >= 0; tran--){
-            System.out.printf(this.movimientos.get(tran).getResumen());
+            System.out.printf(this.movimientos.get(tran).getResumenMovimiento());
         }
         System.out.println();
+    }
+
+    void realizarTransaccion(double cantidad, String info) {
+        Movimiento nuevaTransaccion = new Movimiento(cantidad, info, this);
+        this.movimientos.add(nuevaTransaccion);
+        
     }
 
     
