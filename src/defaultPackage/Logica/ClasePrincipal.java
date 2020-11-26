@@ -1,7 +1,9 @@
 
-package defaultPackage;
+package defaultPackage.Logica;
 
+import defaultPackage.Graficas.VentanaPrincipal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -10,15 +12,19 @@ import java.util.Scanner;
  */
 public class ClasePrincipal {
        
-       public ArrayList<Banco> listaBancos;
-       
        public static void main(String args[]){
+           
+        ArrayList<Banco> listaBancos = new ArrayList<>();
            
         VentanaPrincipal ventana = new VentanaPrincipal();
            
         Scanner sc = new Scanner(System.in);
                 
         Banco primerBanco = new Banco("El Honesto");
+        
+        listaBancos.add(primerBanco);
+        
+        System.out.println(Arrays.toString(listaBancos.toArray()));
         
         Usuario primerUsuario = primerBanco.agregarUsuario("Pepito", "Perez", "1234");
         
@@ -32,9 +38,5 @@ public class ClasePrincipal {
             Cajero.imprimirMenuUsuario(elUsuario, sc);
         }
         
-    }
-
-    public ClasePrincipal() {
-        this.listaBancos = new ArrayList<>();
     }
 }

@@ -1,6 +1,7 @@
 
-package defaultPackage;
+package defaultPackage.Logica;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -15,6 +16,9 @@ public class Cajero {
      * @param sc
      * @return
      */
+    
+    ArrayList<Banco> listaBancos = new ArrayList<>();
+    
     public static Usuario menuPrincipal(Banco elBanco, Scanner sc) {
         String idUsuario;
         String pin;
@@ -171,7 +175,7 @@ public class Cajero {
     }
 
     
-       private static void retitarFondos(Usuario elUsuario, Scanner sc) {
+    private static void retitarFondos(Usuario elUsuario, Scanner sc) {
         int idCuenta;
         double cantidad;
         double balance;
@@ -204,7 +208,7 @@ public class Cajero {
 
     }
        
-       private static void ingresarFondos(Usuario elUsuario, Scanner sc) {
+    private static void ingresarFondos(Usuario elUsuario, Scanner sc) {
         int idCuenta;
         double cantidad;
         String info;
@@ -224,5 +228,15 @@ public class Cajero {
                 "Deposito: %s", info));
        
     }
+    
+    public void agregarBanco(Banco elBanco){
+        this.listaBancos.add(elBanco);
+    }
+
+    public ArrayList<Banco> getListaBancos() {
+        return listaBancos;
+    }
+    
+    
 }
 

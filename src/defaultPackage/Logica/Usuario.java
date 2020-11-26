@@ -1,5 +1,5 @@
 
-package defaultPackage;
+package defaultPackage.Logica;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;

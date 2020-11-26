@@ -1,4 +1,4 @@
-package defaultPackage;
+package defaultPackage.Logica;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +103,11 @@ public class Banco {
     }
 
     public String getNombreBanco() {
+        return nombreBanco;
+    }
+
+    @Override
+    public String toString() {
         return nombreBanco;
     }
     
